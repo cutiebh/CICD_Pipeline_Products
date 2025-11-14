@@ -23,7 +23,7 @@ class FlaskAppTest(unittest.TestCase):
         self.client.post('/api/products', json={"name": "Ball", "price": 9.99})
         response = self.client.get('/api/products')
         self.assertEqual(response.status_code, 200)
-        self.assertIn("Bat", str(response.data))
+        self.assertIn("Ball", str(response.data))
 
 if __name__ == "__main__":
     unittest.main()
