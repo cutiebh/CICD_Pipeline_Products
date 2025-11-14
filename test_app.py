@@ -20,7 +20,7 @@ class FlaskAppTest(unittest.TestCase):
         self.assertIn("Ball", str(response.data))
 
     def test_get_products(self):
-        self.client.post('/api/products', json={"name": "Bat", "price": 49.99})
+        self.client.post('/api/products', json={"name": "Ball", "price": 9.99})
         response = self.client.get('/api/products')
         self.assertEqual(response.status_code, 200)
         self.assertIn("Bat", str(response.data))
