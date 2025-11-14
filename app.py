@@ -17,7 +17,7 @@ class Product(db.Model):
 
 
 # ------------------------------
-# 🌐 Web Routes (Frontend)
+#  Web Routes (Frontend)
 # ------------------------------
 @app.route('/')
 def index():
@@ -52,11 +52,21 @@ def delete_product(id):
     return redirect(url_for('index'))
 
 # ------------------------------
-# 🧩 API Routes (still available)
+# API Routes (still available)
 # ------------------------------
 @app.route('/api/products', methods=['GET'])
 def get_products():
     return jsonify([p.to_dict() for p in Product.query.all()])
+
+@app.route('/api/products', methods=['POST'])
+def add_product_api():
+    data = request.get_json()
+    if not data or "name" not in data or "price" not in data:
+        return jsonify({"error": "Invalid input"}), 400
+    product = Product(name=data['name'], price=data['price'])
+    db.session.add(product)
+    db.session.commit()
+    return jsonify(product.to_dict()), 201
 
 
 if __name__ == '__main__':

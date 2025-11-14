@@ -1,0 +1,122 @@
+# =====================================================
+# Python & Flask specific ignores
+# =====================================================
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+venv/
+env/
+.venv/
+ENV/
+venv.bak/
+
+# Flask instance and local settings
+instance/
+*.db
+*.sqlite3
+
+# Flask logs
+*.log
+
+# Local environment variables
+.env
+.env.*
+
+# PyInstaller
+build/
+dist/
+*.spec
+
+# Jupyter & notebooks
+.ipynb_checkpoints
+*.ipynb
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+pytestdebug.log
+
+# mypy, pylint, etc.
+.mypy_cache/
+.dmypy.json
+.pyre/
+.pytype/
+pylint-report.txt
+
+# =====================================================
+# Docker related
+# =====================================================
+
+# Ignore Docker build cache & temp files
+*.tar
+*.bak
+*.pid
+docker-compose.override.yml
+.dockerignore.bak
+
+# Local Docker volumes or logs
+docker-data/
+docker-logs/
+**/tmp/
+**/temp/
+
+# =====================================================
+# IDE & Editor files
+# =====================================================
+
+# VSCode
+.vscode/
+*.code-workspace
+
+# PyCharm
+.idea/
+
+# Others
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# =====================================================
+# GitHub Actions & local runner
+# =====================================================
+
+# act local secrets file
+.secrets
+*.secrets
+
+# GitHub Actions cache or logs
+.github/workflows/*.log
+
+# =====================================================
+# Miscellaneous
+# =====================================================
+
+# Backup or temporary files
+*.bak
+*.tmp
+*.old
+
+# System files
+ehthumbs.db
+Icon?
+Desktop.ini
+
+# Custom folders for reports or test results
+reports/
+test-results/
+
