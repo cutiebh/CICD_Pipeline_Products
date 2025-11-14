@@ -2,7 +2,8 @@ name: Flask CI/CD Pipeline
 
 on:
   push:
-    branches: [ main ]
+    branches:
+      - '**'        # run on ALL branches (main + feature branches)
   pull_request:
 
 jobs:
@@ -67,9 +68,9 @@ jobs:
         VERSION_TAG=v${{ github.run_number }}
 
         # Tag both versioned and latest images
-        docker tag cicd_pipeline_products ${{ secrets.DOCKER_HUB_USERNAME }}/cicd_pipeline_products:${VERSION_TAG}
+        # docker tag cicd_pipeline_products ${{ secrets.DOCKER_HUB_USERNAME }}/cicd_pipeline_products:${VERSION_TAG}
         docker tag cicd_pipeline_products ${{ secrets.DOCKER_HUB_USERNAME }}/cicd_pipeline_products:latest
 
         # Push both
-        docker push ${{ secrets.DOCKER_HUB_USERNAME }}/cicd_pipeline_products:${VERSION_TAG}
+        # docker push ${{ secrets.DOCKER_HUB_USERNAME }}/cicd_pipeline_products:${VERSION_TAG}
         docker push ${{ secrets.DOCKER_HUB_USERNAME }}/cicd_pipeline_products:latest
